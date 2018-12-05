@@ -81,7 +81,7 @@ fn compile_sleep_history(mut entries: Vec<Entry>) -> HashMap<u32, [u32; 60]> {
     sleep_history
 }
 
-pub fn day4_1(input: &str) -> u32 {
+pub fn part1(input: &str) -> u32 {
     let entries: Vec<Entry> = input.lines().map(parse_entry).collect();
     let sleep_history = compile_sleep_history(entries);
 
@@ -106,7 +106,7 @@ pub fn day4_1(input: &str) -> u32 {
     max_id * most_freq_min
 }
 
-pub fn day4_2(input: &str) -> u32 {
+pub fn part2(input: &str) -> u32 {
     let entries: Vec<Entry> = input.lines().map(parse_entry).collect();
     let sleep_history = compile_sleep_history(entries);
 

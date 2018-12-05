@@ -17,7 +17,7 @@ fn has_exactly_2_3_letters(word: &str) -> (bool, bool) {
     (has_two_letters, has_three_letters)
 }
 
-pub fn day2_1(input: &str) -> i32 {
+pub fn part1(input: &str) -> i32 {
     let mut two_letters = 0;
     let mut three_letters = 0;
     for s in input.split_whitespace() {
@@ -52,7 +52,7 @@ fn are_close(s1: &str, s2: &str) -> Option<usize> {
     }
 }
 
-pub fn day2_2(input: &str) -> String {
+pub fn part2(input: &str) -> String {
     let ids = input
         .split_whitespace()
         .map(String::from)

@@ -44,7 +44,7 @@ fn build_grid(claims: &[Claim]) -> HashMap<(u32, u32), u32> {
     grid
 }
 
-pub fn day3_1(input: &str) -> i32 {
+pub fn part1(input: &str) -> i32 {
     let claims = input.lines().map(parse_claim).collect::<Vec<Claim>>();
     let grid = build_grid(&claims);
     let mut n = 0;
@@ -74,7 +74,7 @@ fn claim_overlaps(
     true
 }
 
-pub fn day3_2(input: &str) -> u32 {
+pub fn part2(input: &str) -> u32 {
     let claims = input.lines().map(parse_claim).collect::<Vec<Claim>>();
     let grid = build_grid(&claims);
     for claim in &claims {

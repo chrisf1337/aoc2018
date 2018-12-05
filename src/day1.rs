@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 
-pub fn day1_1(input: &str) -> i32 {
+pub fn part1(input: &str) -> i32 {
     let mut freq = 0;
     for s in input.split_whitespace() {
         freq += s.parse::<i32>().unwrap();
@@ -8,7 +8,7 @@ pub fn day1_1(input: &str) -> i32 {
     freq
 }
 
-pub fn day1_2(input: &str) -> i32 {
+pub fn part2(input: &str) -> i32 {
     find_dup_freq(
         &input
             .split_whitespace()
