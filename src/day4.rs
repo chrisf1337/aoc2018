@@ -25,12 +25,12 @@ impl EntryType {
     }
 }
 
+lazy_static! {
+    static ref timestamp_regex: Regex = Regex::new(r"\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2})\]").unwrap();
+    static ref shift_regex: Regex = Regex::new(r"Guard #(\d+) begins shift").unwrap();
+}
+
 fn parse_entry(line: &str) -> Entry {
-    lazy_static! {
-        static ref timestamp_regex: Regex =
-            Regex::new(r"\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2})\]").unwrap();
-        static ref shift_regex: Regex = Regex::new(r"Guard #(\d+) begins shift").unwrap();
-    }
     let time_str = &timestamp_regex.captures(line).unwrap()[1];
     let time = NaiveDateTime::parse_from_str(time_str, "%F %R").unwrap();
     if let Some(caps) = shift_regex.captures(line) {

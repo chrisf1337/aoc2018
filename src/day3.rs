@@ -9,10 +9,11 @@ struct Claim {
     pub extent: (u32, u32),
 }
 
+lazy_static! {
+    static ref claim_regex: Regex = Regex::new(r"#(\d+) @ (\d+),(\d+): (\d+)x(\d+)").unwrap();
+}
+
 fn parse_claim(claim_str: &str) -> Claim {
-    lazy_static! {
-        static ref claim_regex: Regex = Regex::new(r"#(\d+) @ (\d+),(\d+): (\d+)x(\d+)").unwrap();
-    }
     let caps = claim_regex.captures(claim_str).unwrap();
     Claim {
         id: caps[1].parse::<u32>().unwrap(),
