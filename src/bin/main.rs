@@ -23,6 +23,8 @@ fn main() {
     input_files.insert(("5", "2"), "inputs/day5_1.in.txt");
     input_files.insert(("6", "1"), "inputs/day6_1.in.txt");
     input_files.insert(("6", "2"), "inputs/day6_1.in.txt");
+    input_files.insert(("7", "1"), "inputs/day7_1.in.txt");
+    input_files.insert(("7", "2"), "inputs/day7_1.in.txt");
 
     let mut f = File::open(input_files[&(day, part)]).expect("file open");
     let mut input = String::new();
@@ -39,6 +41,8 @@ fn main() {
         ("4", "2") => println!("{}", day4::part2(&input)),
         ("6", "1") => println!("{}", day6::part1(&input)),
         ("6", "2") => println!("{}", day6::part2(&input)),
+        ("7", "1") => println!("{}", day7::part1(&input)),
+        ("7", "2") => println!("{}", day7::part2(&input)),
         (_, _) => unimplemented!(),
     }
 }

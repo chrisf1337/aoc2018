@@ -36,7 +36,7 @@ pub fn part1(input: &str) -> usize {
 pub fn part2(input: &str) -> usize {
     let polymer = input.trim().chars().collect::<Vec<char>>();
     let mut min_len = std::usize::MAX;
-    for c in 'a' as u8..'z' as u8 {
+    for c in 'a' as u8..='z' as u8 {
         let c = c as char;
         let new_polymer = polymer
             .clone()
