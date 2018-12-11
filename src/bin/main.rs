@@ -29,12 +29,17 @@ fn main() {
     input_files.insert(("8", "2"), "inputs/day8_1.in.txt");
     input_files.insert(("9", "1"), "inputs/day9_1.in.txt");
     input_files.insert(("9", "2"), "inputs/day9_1.in.txt");
-    input_files.insert(("10", "1"), "inputs/day10_test.in.txt");
+    input_files.insert(("10", "1"), "inputs/day10_1.in.txt");
     input_files.insert(("10", "2"), "inputs/day10_1.in.txt");
 
-    let mut f = File::open(input_files[&(day, part)]).expect("file open");
-    let mut input = String::new();
-    f.read_to_string(&mut input).expect("file read");
+    let input = if let Some(filepath) = input_files.get(&(day, part)) {
+        let mut f = File::open(filepath).expect("file open");
+        let mut input = String::new();
+        f.read_to_string(&mut input).expect("file read");
+        input
+    } else {
+        "".to_string()
+    };
 
     match (day, part) {
         ("1", "1") => println!("{}", day1::part1(&input)),
@@ -55,6 +60,8 @@ fn main() {
         ("9", "2") => println!("{}", day9::part2(&input)),
         ("10", "1") => println!("{}", day10::part1(&input)),
         ("10", "2") => println!("{}", day10::part2(&input)),
+        ("11", "1") => println!("{:?}", day11::part1(5153)),
+        ("11", "2") => println!("{:?}", day11::part2(5153)),
         (_, _) => unimplemented!(),
     }
 }
